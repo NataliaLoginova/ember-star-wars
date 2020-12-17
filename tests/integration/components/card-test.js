@@ -26,7 +26,7 @@ module('Integration | Component | card', function(hooks) {
     this.set('resource', 'starships');
     this.set('isWin', true);
     await render(hbs`<Card @resource={{this.resource}} @metric={{this.metric}} @isWin={{this.isWin}}/>`);
-    assert.dom('.card-text').hasText('12');
+    assert.dom('.card-text').hasText('Metric: 12');
     assert.dom('.card-title').hasText('Card with starships');
     assert.dom('.badge').exists();
 
