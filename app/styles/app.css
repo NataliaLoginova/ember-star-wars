@@ -1,0 +1,23 @@
+.main {
+  margin: 50px auto;
+  width: fit-content;
+}
+
+.header, .form-check {
+  width: fit-content;
+}
+
+.form-check-label {
+  width: 80px;
+}
+
+.cards {
+  margin: 50px 0;
+  display: flex;
+}
+
+.card {
+  height: 182px;
+  width: 288px;
+  margin-left: 15px;
+}

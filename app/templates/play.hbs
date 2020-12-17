@@ -1,0 +1,52 @@
+<div class="main">
+  <div class="mx-auto form-check">
+    <input
+      class="form-check-input"
+      type="radio" name="resource"
+      id="radioPeople"
+      onchange={{action setResource 'people'}}
+      checked={{if (eq resource (get options '0')) 'checked'}}
+    />
+    <label
+      class="form-check-label"
+      for="radioPeople"
+    >
+      People
+    </label>
+    <input
+      class="form-check-input"
+      type="radio"
+      name="resource"
+      id="radioStarships"
+      onchange={{action setResource 'starships'}}
+      checked={{if (eq resource (get options '1')) 'checked'}}
+    />
+    <label
+      class="form-check-label"
+      for="radioStarships">
+      Starships
+    </label>
+  </div>
+  <div class="cards">
+  <Card
+    @resource={{resource}}
+    @winCounter="{{counterLeftCard}}"
+    @isWin={{if (gt @model.leftCard.metric @model.rightCard.metric) true}}
+    @metric={{@model.leftCard.metric}}
+  />
+  <Card
+    @resource={{resource}}
+    @winCounter="{{counterRightCard}}"
+    @isWin={{if (lt @model.leftCard.metric @model.rightCard.metric) true}}
+    @metric={{@model.rightCard.metric}}
+  />
+  </div>
+  <button
+    type="button"
+    class="btn btn-primary btn-lg btn-block"
+    {{action applyGame}}
+  >
+    Play
+  </button>
+</div>
+{{outlet}}
